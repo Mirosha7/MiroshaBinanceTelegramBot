@@ -1,0 +1,23 @@
+{
+  "symbol": "ZECUSDT",
+  "priceChange": "19.69000000",
+  "priceChangePercent": "9.663",
+  "weightedAvgPrice": "216.18576005",
+  "prevClosePrice": "203.67000000",
+  "lastPrice": "223.46000000",
+  "lastQty": "0.23570000",
+  "bidPrice": "223.36000000",
+  "bidQty": "0.31802000",
+  "askPrice": "223.46000000",
+  "askQty": "14.52071000",
+  "openPrice": "203.77000000",
+  "highPrice": "231.89000000",
+  "lowPrice": "199.34000000",
+  "volume": "497268.55048000",
+  "quoteVolume": "107502379.53549540",
+  "openTime": 1618071475058,
+  "closeTime": 1618157875058,
+  "firstId": 28794701,
+  "lastId": 29010905,
+  "count": 216205
+}
