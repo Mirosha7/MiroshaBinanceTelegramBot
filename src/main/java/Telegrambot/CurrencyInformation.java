@@ -11,14 +11,18 @@ import java.util.Date;
 import java.util.Scanner;
 
 public class CurrencyInformation {
-    public static String getCurrencyInformation(String message, Model model) throws IOException {
+    public static String getCurrencyInformation(String message) throws IOException {
         URL url = new URL("https://api.binance.com/api/v3/ticker/24hr?symbol=" + message);
 
         Scanner in = new Scanner((InputStream) url.getContent());
-        String result = "";
+        StringBuilder stringBuilder = new StringBuilder();
+
         while (in.hasNext()) {
-            result += in.nextLine();
+            stringBuilder.append(in.nextLine());
         }
+        String result = stringBuilder.toString();
+
+        Model model = new Model();
 
         JSONObject object = new JSONObject(result);
         model.setSymbol(object.getString("symbol"));

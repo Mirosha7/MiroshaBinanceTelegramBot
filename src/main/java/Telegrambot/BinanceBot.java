@@ -28,7 +28,7 @@ public class BinanceBot extends TelegramLongPollingBot {
     @Override
     public void onUpdateReceived(Update update) {
         Message message = update.getMessage();
-        Model model = new Model();
+
         if (message != null && message.hasText()) {
             switch (message.getText()) {
                 case "/help":
@@ -40,7 +40,7 @@ public class BinanceBot extends TelegramLongPollingBot {
                     break;
                 default:
                     try {
-                        sendBotMessage(message, CurrencyInformation.getCurrencyInformation(message.getText().toUpperCase(), model));
+                        sendBotMessage(message, CurrencyInformation.getCurrencyInformation(message.getText().toUpperCase()));
                     } catch (IOException e) {
                         sendBotMessage(message, "Что-то пошло не так");
                     }
@@ -48,7 +48,7 @@ public class BinanceBot extends TelegramLongPollingBot {
         }
     }
 
-    public void sendBotMessage(Message message, String text) {
+    private void sendBotMessage(Message message, String text) {
         SendMessage sendMessage = new SendMessage();
         sendMessage.enableMarkdown(true);
         sendMessage.setChatId(message.getChatId().toString());
@@ -62,7 +62,7 @@ public class BinanceBot extends TelegramLongPollingBot {
         }
     }
 
-    public void setButtons(SendMessage sendMessage) {
+    private void setButtons(SendMessage sendMessage) {
         ReplyKeyboardMarkup replyKeyboardMarkup = new ReplyKeyboardMarkup();
         sendMessage.setReplyMarkup(replyKeyboardMarkup);
         replyKeyboardMarkup.setSelective(true);
